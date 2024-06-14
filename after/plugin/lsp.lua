@@ -24,8 +24,7 @@ require('mason-lspconfig').setup({
 	  'terraformls',
 	  'tflint',
 	  'lua_ls',
-    'jsonls',
-    'kotlin_language_server'
+    'jsonls'
   },
   handlers = {
       lsp_zero.default_setup,

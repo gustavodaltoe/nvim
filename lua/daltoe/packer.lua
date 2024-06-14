@@ -50,13 +50,13 @@ return require('packer').startup(function(use)
     }
   }
 
-  use "github/copilot.vim"
+  use { "zbirenbaum/copilot.lua" }
 
   use {
     'CopilotC-Nvim/CopilotChat.nvim',
     branch = "canary",
     requires = {
-      { "github/copilot.lua" },
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.lua
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     }
   }
