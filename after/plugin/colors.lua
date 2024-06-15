@@ -6,4 +6,20 @@ function ColorMyPencils(color)
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-ColorMyPencils()
+--ColorMyPencils()
+require('onedark').setup {
+    style = 'darker',
+    transparent = true,
+    term_colors = true,
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'bold',
+        strings = 'none',
+        variables = 'none'
+    },
+}
+require('onedark').load()

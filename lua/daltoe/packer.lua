@@ -13,13 +13,20 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
+  use 'nvim-tree/nvim-web-devicons'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
-    config = function()
-      vim.cmd('colorscheme rose-pine')
-    end
+    --config = function()
+    --  vim.cmd('colorscheme rose-pine')
+    --end
   })
+  use 'navarasu/onedark.nvim'
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
@@ -57,9 +64,13 @@ return require('packer').startup(function(use)
     branch = "canary",
     requires = {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.lua
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
     }
   }
+
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end }
 
   use "tpope/vim-surround"
 end)
