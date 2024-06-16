@@ -48,3 +48,18 @@ vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/daltoe/packer.lua<
 vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
+
+if vim.fn.has("wsl") then
+  vim.g.clipboard = {
+    name = "win_clipboard",
+    copy = {
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
+    },
+    paste = {
+      ["+"] = "powershell.exe Get-Clipboard",
+      ["*"] = "powershell.exe Get-Clipboard",
+    },
+    cache_enabled = 0,
+  }
+end
