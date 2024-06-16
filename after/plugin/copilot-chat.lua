@@ -1,5 +1,4 @@
 local chat = require('CopilotChat')
-
 chat.setup {
   debug = true,
   window = {
@@ -40,6 +39,15 @@ chat.setup {
     },
   },
 }
-
 vim.keymap.set({ 'n', 'v' }, '<leader>aa', chat.toggle, { desc = 'AI Toggle' })
 vim.keymap.set({ 'n', 'v' }, '<leader>ax', chat.reset, { desc = 'AI Reset' })
+
+-- accept copilot suggestion with tab
+vim.keymap.set('i', '<Tab>', function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end, { desc = "Copilot accept" })
+

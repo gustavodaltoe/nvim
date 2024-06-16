@@ -57,7 +57,23 @@ return require('packer').startup(function(use)
     }
   }
 
-  use { "zbirenbaum/copilot.lua" }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    -- Because the copilot server takes some time to start up, it is recommend that you lazy load copilot
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<Tab>",
+            dismiss = "<Esc>"
+          },
+        }
+      })
+    end,
+  }
 
   use {
     'CopilotC-Nvim/CopilotChat.nvim',
