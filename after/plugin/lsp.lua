@@ -24,7 +24,8 @@ require('mason-lspconfig').setup({
 	  'terraformls',
 	  'tflint',
 	  'lua_ls',
-    'jsonls'
+    'jsonls',
+    'omnisharp',
   },
   handlers = {
       lsp_zero.default_setup,
