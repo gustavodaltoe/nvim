@@ -49,7 +49,7 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end)
 
-if vim.fn.has("wsl") then
+if not vim.fn.has("mac") and vim.fn.has("wsl") then
   vim.g.clipboard = {
     name = "win_clipboard",
     copy = {
