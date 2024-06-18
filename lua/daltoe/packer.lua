@@ -67,10 +67,13 @@ return require('packer').startup(function(use)
         suggestion = {
           auto_trigger = true,
           keymap = {
-            accept = "<Tab>",
+            accept = false,
             dismiss = "<Esc>"
           },
-        }
+        },
+        filetypes = {
+          ['*'] = true,
+        },
       })
     end,
   }
